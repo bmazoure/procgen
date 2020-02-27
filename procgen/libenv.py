@@ -381,6 +381,31 @@ class CVecEnv:
         self._state = STATE_WAIT_ACT
 
         self._c_lib.libenv_reset(self._c_env, self._c_step)
+        
+        # libenv_cdef = ""
+        # with open(os.path.join(SCRIPT_DIR, "wrapper.h")) as f:
+        #     inside_cdef = False
+        #     for line in f:
+        #         if line.startswith("// BEGIN_CDEF"):
+        #             inside_cdef = True
+        #         elif line.startswith("// END_CDEF"):
+        #             inside_cdef = False
+        #         elif line.startswith("#if") or line.startswith("#endif"):
+        #             continue
+
+        #         if inside_cdef:
+        #             line = line.replace("LIBENV_API", "")
+        #             libenv_cdef += line
+        # libenv_cdef = 'void set_vars(libenv_venv *env, char *name, int value);'
+        # self._ffi.cdef(libenv_cdef)
+
+    
+        # self._wrapper_lib = self._ffi.dlopen(name='/'+os.path.join(*self._lib_path.split('/')[:-1],'libwrapper.dylib'))
+        # var_name = self._ffi.new("char[]", "num_envs".encode('ascii'))
+        # # var_value = self._ffi.new("float", 3.0)
+        # self._wrapper_lib.set_vars(self._c_env,var_name,3)
+
+        
         return self._maybe_copy_dict(self._observations)
 
     def step_async(self, actions: np.ndarray) -> None:

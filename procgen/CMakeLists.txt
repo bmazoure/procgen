@@ -76,3 +76,37 @@ add_library(env
 )
 
 target_link_libraries(env Qt5::Gui)
+
+add_library(wrapper SHARED 
+  wrapper.cpp
+  src/assetgen.cpp
+  src/basic-abstract-game.cpp
+  src/cpp-utils.cpp
+  src/entity.cpp
+  src/game.cpp
+  src/game-registry.cpp
+  src/games/dodgeball.cpp
+  src/games/bigfish.cpp
+  src/games/bossfight.cpp
+  src/games/caveflyer.cpp
+  src/games/climber.cpp
+  src/games/coinrun_old.cpp
+  src/games/coinrun.cpp
+  src/games/fruitbot.cpp
+  src/games/heist.cpp
+  src/games/jumper.cpp
+  src/games/leaper.cpp
+  src/games/maze.cpp
+  src/games/miner.cpp
+  src/games/ninja.cpp
+  src/games/chaser.cpp
+  src/games/plunder.cpp
+  src/games/starpilot.cpp
+  src/mazegen.cpp
+  src/randgen.cpp
+  src/roomgen.cpp
+  src/resources.cpp
+  src/vecgame.cpp
+  src/vecoptions.cpp)
+
+target_link_libraries(wrapper Qt5::Gui)

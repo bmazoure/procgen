@@ -5,9 +5,9 @@
 #include "../mazegen.h"
 #include "../cpp-utils.h"
 
-const float ORB_REWARD = 0.04f;
-const float COMPLETION_BONUS = 10.0f;
-const float ORB_DIM = 0.3f;
+float ORB_REWARD = 0.04f;
+float COMPLETION_BONUS = 10.0f;
+float ORB_DIM = 0.3f;
 
 const int LARGE_ORB = 2;
 const int ENEMY_WEAK = 3;
@@ -131,6 +131,12 @@ class ChaserGame : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        // Re-defining const 
+        ORB_REWARD = options.ORB_REWARD;
+        COMPLETION_BONUS = options.COMPLETION_BONUS;
+        ORB_DIM = options.ORB_DIM;
+
+
         int extra_orb_sign = 1;
 
         if (options.distribution_mode == EasyMode) {
@@ -148,6 +154,10 @@ class ChaserGame : public BasicAbstractGame {
         } else {
             fassert(false);
         }
+
+        maze_dim = options.maze_dim;
+        total_enemies = options.total_enemies;
+        extra_orb_sign = options.extra_orb_sign;
 
         if (maze_gen == nullptr) {
             std::shared_ptr<MazeGen> _maze_gen(new MazeGen(&rand_gen, maze_dim));

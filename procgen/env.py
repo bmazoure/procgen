@@ -106,7 +106,7 @@ class BaseProcgenEnv(CVecEnv):
                 "rand_seed": rand_seed,
                 "num_threads": num_threads,
                 # these will only be used the first time an environment is created in a process
-                "resource_root": resource_root,
+                "resource_root": resource_root
             }
         )
 

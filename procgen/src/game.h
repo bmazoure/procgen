@@ -50,8 +50,17 @@ struct GameOptions {
 
     // coinrun_old
     bool use_easy_jump = false;
+
+    // Latent generative factors
     int plain_assets = 0;
     int physics_mode = 0;
+
+    float ORB_REWARD = 0.0;
+    float COMPLETION_BONUS = 0.0;
+    float ORB_DIM = 0.0;
+    int maze_dim = 0;
+    int total_enemies = 0;
+    int extra_orb_sign = 0;
 };
 
 class Game {
