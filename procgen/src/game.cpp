@@ -65,7 +65,6 @@ void Game::parse_options(std::string name, VecOptions opts) {
     opts.consume_int("physics_mode", &options.physics_mode);
     opts.consume_int("debug_mode", &options.debug_mode);
     opts.consume_int("game_type", &game_type);
-    std::cout << name ;
     // Latent generative factors
     // Chaser
     if( name == "chaser" ){
