@@ -7,16 +7,16 @@ const int WATER = 3;
 const int CAR = 4;
 const int FINISH_LINE = 5;
 
-const float MONSTER_RADIUS = 0.25;
-const float LOG_RADIUS = 0.45f;
+float MONSTER_RADIUS = 0.25;
+float LOG_RADIUS = 0.45f;
 
-const int GOAL_REWARD = 10.0f;
+int GOAL_REWARD = 10.0f;
 
-const int NSTEP = 5;
-const int FROG_ANIMATION_FRAMES = NSTEP;
+int NSTEP = 5;
+int FROG_ANIMATION_FRAMES = NSTEP;
 
-const float MAX_SPEED = 2 / (NSTEP - 1.0);
-const float VEL_DECAY = MAX_SPEED / NSTEP;
+float MAX_SPEED = 2 / (NSTEP - 1.0);
+float VEL_DECAY = MAX_SPEED / NSTEP;
 
 float sign(float x) {
     return x > 0 ? +1 : (x == 0 ? 0 : -1);
@@ -136,6 +136,22 @@ class LeaperGame : public BasicAbstractGame {
             min_log_speed = 0.1f;
             max_log_speed = 0.2f;
         }
+        /**
+         * Custom parameters
+         **/
+
+        MONSTER_RADIUS = options.monster_radius;
+        LOG_RADIUS = options.log_radius;
+        GOAL_REWARD = options.goal_reward;
+        NSTEP = options.nstep;
+        min_car_speed = options.min_car_speed;
+        max_car_speed = options.max_car_speed;
+        min_log_speed = options.min_log_speed;
+        max_log_speed = options.max_log_speed;
+
+        FROG_ANIMATION_FRAMES = NSTEP;
+        MAX_SPEED = 2 / (NSTEP - 1.0);
+        VEL_DECAY = MAX_SPEED / NSTEP;
 
         // road
         bottom_road_y = choose_extra_space() + 1;
