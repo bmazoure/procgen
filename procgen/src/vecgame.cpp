@@ -308,6 +308,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 
     for (int n = 0; n < num_envs; n++) {
         auto name = env_names[n % num_joint_games];
+
         games[n] = globalGameRegistry->at(name)();
         fassert(games[n]->game_name == name);
         games[n]->level_seed_rand_gen.seed(game_level_seed_gen.randint());

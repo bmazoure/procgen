@@ -70,31 +70,6 @@ void Game::parse_options(std::string name, VecOptions opts) {
     opts.consume_int("physics_mode", &options.physics_mode);
     opts.consume_int("debug_mode", &options.debug_mode);
     opts.consume_int("game_type", &game_type);
-    // Latent generative factors
-    // Chaser
-    if( name == "chaser" ){
-        opts.consume_float("ORB_REWARD", &options.ORB_REWARD);
-        opts.consume_float("COMPLETION_BONUS", &options.COMPLETION_BONUS);
-        opts.consume_float("ORB_DIM", &options.ORB_DIM);
-        opts.consume_int("maze_dim", &options.maze_dim);
-        opts.consume_int("total_enemies", &options.total_enemies);
-        opts.consume_int("extra_orb_sign", &options.extra_orb_sign);
-    }
-    // Leaper
-    else if ( name == "leaper" )
-    {
-        opts.consume_float("monster_radius", &options.monster_radius);
-        opts.consume_float("log_radius", &options.log_radius);
-        opts.consume_int("goal_reward", &options.goal_reward);
-        opts.consume_int("nstep", &options.nstep);
-        opts.consume_float("min_car_speed", &options.min_car_speed);
-        opts.consume_float("max_car_speed", &options.max_car_speed);
-        opts.consume_float("min_log_speed", &options.min_log_speed);
-        opts.consume_float("max_log_speed", &options.max_log_speed);
-    }
-    
-    
-
 
     opts.ensure_empty();
 }

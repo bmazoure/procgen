@@ -55,30 +55,8 @@ struct GameOptions {
 
     // coinrun_old
     bool use_easy_jump = false;
-
-    // Latent generative factors
     int plain_assets = 0;
     int physics_mode = 0;
-
-    // Custom parameters
-    // Chaser
-
-    float ORB_REWARD = 0.0;
-    float COMPLETION_BONUS = 0.0;
-    float ORB_DIM = 0.0;
-    int maze_dim = 0;
-    int total_enemies = 0;
-    int extra_orb_sign = 0;
-
-    // Leaper
-    float monster_radius = 0.25;
-    float log_radius = 0.45f;
-    int goal_reward = 10.0f;
-    int nstep = 5;
-    float min_car_speed = 0.05f;
-    float max_car_speed = 0.2f;
-    float min_log_speed = 0.05f;
-    float max_log_speed = 0.1f;
 };
 
 class Game {
