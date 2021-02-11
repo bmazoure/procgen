@@ -328,6 +328,17 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 
         games[n]->game_init();
     }
+
+    {
+    struct libenv_tensortype s;
+    strcpy(s.name, "heist_key_count");
+    s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+    s.dtype = LIBENV_DTYPE_INT32;
+    s.ndim = 0,
+    s.low.int32 = 0;
+    s.high.int32 = INT32_MAX;
+    info_types.push_back(s);
+    }
 }
 
 void VecGame::set_buffers(const std::vector<std::vector<void *>> &ac, const std::vector<std::vector<void *>> &ob, const std::vector<std::vector<void *>> &info, float *rew, uint8_t *first) {
